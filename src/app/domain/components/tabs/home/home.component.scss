@@ -1,0 +1,84 @@
+$color: #747880;
+* {
+  transition: 0.6s ease;
+}
+ion-content {
+  transition: 0s;
+}
+.content {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  animation: zoomIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+.content h1 {
+  white-space: nowrap;
+  font-size: 20px;
+  padding-left: 18px;
+  color: var(--ion-color-primary);
+}
+.content p {
+  color: #999;
+  font-size: 12px;
+  margin-top: 0px;
+  padding-left: 18px;
+}
+.search-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+.content ion-button {
+  transition: 0s;
+  --border-radius: 100%;
+  --padding: 0px 4px;
+  font-size: 15px;
+  margin: 12px auto;
+}
+.restaurantic {
+  font-size: 25px;
+  margin-right: 7.5px;
+}
+.cards-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-right: 40px;
+  margin-top: 20px;
+}
+ion-card-content {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    ion-icon {
+      color: var(--ion-color-primary);
+      font-size: 21px;
+    }
+    .title-card {
+      color: $color;
+      margin-top: 7px;
+      font-size: 14px;
+    }
+    .value-card {
+      color: var(--ion-color-primary);
+      font-size: 12px;
+    }
+  }
+}
+ion-card {
+  transition: 0.4s all ease;
+  margin-right: 0px;
+  min-width: 110px;
+  width: 25%;
+  height: 100px;
+  margin-top: 0px;
+}

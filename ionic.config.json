@@ -1,0 +1,7 @@
+{
+  "name": "ai-calories",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

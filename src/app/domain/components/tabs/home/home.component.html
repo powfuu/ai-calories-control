@@ -1,0 +1,41 @@
+<app-header title="Nutrition Assistant" ic="calculator"></app-header>
+
+<ion-content [fullscreen]="true">
+    <div class="content">
+        <h1><ion-icon name="restaurant-outline" class="restaurantic" color="primary"></ion-icon>Nutrition Insight
+            Tracker</h1>
+        <p>If you specify the (g.) results will be more accurate.</p>
+        <div class="search-content">
+            <ion-searchbar [(ngModel)]="dataInput" mode="ios" class="ion-no-padding calories-input"
+                placeholder="A portion of rice with chicken and french fries." searchIcon="calculator"
+                type="text"></ion-searchbar>
+        </div>
+        <ion-button (click)="calculateStatistics()" mode="ios"><ion-icon name="chevron-forward"></ion-icon></ion-button>
+        <div class="cards-container" *ngIf="dataResponse">
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Calories', value: dataResponse.Calories, ic: 'pie-chart'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Fibers', value: dataResponse.Fibers, ic: 'pizza'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Sugars', value: dataResponse.Sugars, ic: 'pin'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Proteins', value: dataResponse.Proteins, ic: 'fish'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Fats', value: dataResponse.Fats, ic: 'fast-food'}}"></ng-container>
+        </div>
+    </div>
+</ion-content>
+
+<ng-template #statisticsCard let-data>
+    <ng-container>
+        <ion-card mode="ios">
+            <ion-card-content>
+                <div>
+                    <ion-icon [name]="data.ic"></ion-icon>
+                    <ion-text class="title-card">{{data.title}}</ion-text>
+                    <ion-text class="value-card">{{data.value}}</ion-text>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </ng-container>
+</ng-template>

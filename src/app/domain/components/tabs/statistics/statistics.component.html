@@ -1,0 +1,37 @@
+<app-header title="Log" ic="heart"></app-header>
+
+<ion-content [fullscreen]="true">
+    @if(log$ | async; as log) {
+    @for (item of log.slice().reverse(); track $index) {
+    <div class="content">
+        <p class="title">{{item.title}}</p>
+        <div class="cards-container">
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Calories', value: item.Calories, ic: 'pie-chart'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Fibers', value: item.Fibers, ic: 'pizza'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Sugars', value: item.Sugars, ic: 'pin'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Proteins', value: item.Proteins, ic: 'fish'}}"></ng-container>
+            <ng-container
+                *ngTemplateOutlet="statisticsCard; context: {$implicit: {title: 'Fats', value: item.Fats, ic: 'fast-food'}}"></ng-container>
+        </div>
+    </div>
+    }
+    }
+</ion-content>
+
+<ng-template #statisticsCard let-data>
+    <ng-container>
+        <ion-card class="card-statistics" mode="ios">
+            <ion-card-content>
+                <div>
+                    <ion-icon [name]="data.ic"></ion-icon>
+                    <ion-text class="title-card">{{data.title}}</ion-text>
+                    <ion-text class="value-card">{{data.value}}</ion-text>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </ng-container>
+</ng-template>

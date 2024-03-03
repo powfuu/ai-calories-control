@@ -1,0 +1,45 @@
+$color: #747880;
+.card-statistics {
+  width: 35%;
+  margin-bottom: 0px;
+}
+.content {
+  margin-top: 25px;
+}
+.title {
+  color: var(--ion-color-primary);
+  font-size: 22px;
+  margin: 0px 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: capitalize;
+}
+.cards-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+ion-card-content {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    ion-icon {
+      color: var(--ion-color-primary);
+      font-size: 21px;
+    }
+    .title-card {
+      color: $color;
+      margin-top: 7px;
+      font-size: 14px;
+    }
+    .value-card {
+      color: var(--ion-color-primary);
+      font-size: 12px;
+    }
+  }
+}
